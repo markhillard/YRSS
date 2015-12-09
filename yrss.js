@@ -156,8 +156,15 @@
                     $(this).find('.entryContent *').not('p').first().hide();
                     
                     // * set character limit
-                    var paragraph = $(this).find('p');
-                    paragraph.text(paragraph.text().substring(0, options.snippetlimit) + ' ...');
+                    var p = $(this).find('p');
+                    var pl = p.text().length;
+                    p.text(function(i, v) {
+                        if (pl <= options.snippetlimit) {
+                            return v;
+                        } else {
+                            return v.substring(0, options.snippetlimit) + ' ...';
+                        }
+                    });
                 }
             });
         }
