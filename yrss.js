@@ -1,6 +1,6 @@
-(function($) {
+(function ($) {
     
-    $.fn.rssfeed = function(url, options, fn) {
+    $.fn.rssfeed = function (url, options, fn) {
         
         // plugin defaults
         var defaults = {
@@ -18,10 +18,10 @@
         };
         
         // extend options
-        var options = $.extend(defaults, options);
+        options = $.extend(defaults, options);
         
-        // functions
-        return this.each(function(i, e) {
+        // return functions
+        return this.each(function (i, e) {
             var s = '';
             
             // check for ssl protocol
@@ -39,7 +39,7 @@
             query += '&format=json';
             
             // send request
-            $.getJSON(query, function(data, status, errorThrown) {
+            $.getJSON(query, function (data, status, errorThrown) {
                 // if successful... *
                 if (status === 'success') {
                     // * run function to create html result
@@ -52,15 +52,18 @@
                 } else if (status === 'error' || status === 'parsererror') {
                     // if showerror option is true... *
                     if (options.showerror) {
+                        // variable scoping (error)
+                        var msg;
+                        
                         // if errormsg option is not empty... *
                         if (options.errormsg !== '') {
                             // * assign custom error message
-                            var msg = options.errormsg;
+                            msg = options.errormsg;
                             
                         // if errormsg option is empty... *
                         } else {
                             // * assign default error message
-                            var msg = data.errorThrown;
+                            msg = errorThrown;
                         }
                         
                         // * display error message
@@ -77,25 +80,26 @@
     };
     
     // create html result
-    var process = function(e, data, options) {
+    var process = function (e, data, options) {
         // feed data (entries)
         var entries = data.query.results.item;
         
         // abort if no entries exist
         if (!entries) { return false; }
         
+        // html variables
         var html = '';
         var htmlObject;
         
         // for each entry... *
-        $.each(entries, function(i) {
+        $.each(entries, function (i) {
             // * assign entry variable
             var entry = entries[i];
             
             // * arrange entry tags
             var tags = entry.category.toString().toLowerCase().replace(/ /g, '-').replace(/,/g, ' ');
             
-            // * assign date variable
+            // * variable scoping (date)
             var pubDate;
             
             // if date option is true... *
@@ -105,14 +109,14 @@
                 
                 // * select date format
                 if (options.dateformat === 'default') {
-                    var pubDate = (entryDate.getMonth() + 1).toString() + '/' + entryDate.getDate().toString() + '/' + entryDate.getFullYear();
+                    pubDate = (entryDate.getMonth() + 1).toString() + '/' + entryDate.getDate().toString() + '/' + entryDate.getFullYear();
                 } else if (options.dateformat === 'spellmonth') {
                     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-                    var pubDate = months[entryDate.getMonth()] + ' ' + entryDate.getDate().toString() + ', ' + entryDate.getFullYear();
+                    pubDate = months[entryDate.getMonth()] + ' ' + entryDate.getDate().toString() + ', ' + entryDate.getFullYear();
                 } else if (options.dateformat === 'localedate') {
-                    var pubDate = entryDate.toLocaleDateString();
+                    pubDate = entryDate.toLocaleDateString();
                 } else if (options.dateformat === 'localedatetime') {
-                    var pubDate = entryDate.toLocaleDateString() + ' ' + entryDate.toLocaleTimeString();
+                    pubDate = entryDate.toLocaleDateString() + ' ' + entryDate.toLocaleTimeString();
                 }
             }
             
@@ -137,7 +141,7 @@
         // if content option is true... *
         if (options.content) {
             // for each entry... *
-            $.each(htmlObject, function() {
+            $.each(htmlObject, function () {
                 // if snippet option is true... *
                 if (options.snippet) {
                     // * check for first image
@@ -158,7 +162,7 @@
                     // * set character limit
                     var p = $(this).find('p');
                     var pl = p.text().length;
-                    p.text(function(i, v) {
+                    p.text(function (i, v) {
                         if (pl <= options.snippetlimit) {
                             return v;
                         } else {
