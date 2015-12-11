@@ -1,8 +1,8 @@
 # YRSS
 
-YRSS is a jQuery plugin that utilizes YQL (Yahoo Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page.
+YRSS is a jQuery plugin that utilizes YQL (Yahoo Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page. It's loosely based off of [zRSSFeed](http://www.zazar.net/developers/jquery/zrssfeed/), which has been discontinued due to the [Google Feed API being deprecated](https://developers.google.com/feed/terms). This is our solution for clients that previously had zRSSFeed customizations made in BBNC/BBIS that no longer work.
 
-**Important:** This plugin has been configured to retrieve an RSS feed from BBNC/BBIS only.
+YRSS can be used to pull data from any RSS feed on the Internet. However, as with any 3rd party service there's always a chance it will go down or become unusable in the future. Let's hope that Yahoo! keeps YQL up and running.
 
 ## Setup
 
@@ -18,6 +18,7 @@ $('#element').rssfeed('https://bbis5740pssandbox.blackbaudhosting.com/feed.rss?i
     limit: 10,
     showerror: true,
     errormsg: '',
+    tags: false,
     date: true,
     dateformat: 'default',
     titletag: 'h4',
@@ -25,8 +26,16 @@ $('#element').rssfeed('https://bbis5740pssandbox.blackbaudhosting.com/feed.rss?i
     snippet: true,
     snippetlimit: 120,
     linktarget: '_self'
+}, function () {
+    // optional callback function
 });
 ```
+
+### Callback Function
+
+As above, you can pass a callback function after the options are decalred. This function will fire immediately after YQL returns feed data.
+
+**Format:** `rssfeed(url, options, fn)`
 
 ## Configuration
 
@@ -37,6 +46,8 @@ $('#element').rssfeed('https://bbis5740pssandbox.blackbaudhosting.com/feed.rss?i
 `showerror`: (**boolean**) - display error message if feed cannot be loaded
 
 `errormsg`: (**string**) - display custom error message if `showerror` option is **true**
+
+`tags`: (**boolean**) - enable or disable tagging (entry tags are added as data attribute values on entry wrapper elements)
 
 `date`: (**boolean**) - enable or disable entry dates
 
