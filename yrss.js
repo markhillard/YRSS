@@ -8,6 +8,7 @@
             limit: 10,
             showerror: true,
             errormsg: '',
+            tags: false,
             date: true,
             dateformat: 'default',
             titletag: 'h4',
@@ -96,8 +97,14 @@
             // * assign entry variable
             var entry = entries[i];
             
-            // * arrange entry tags
-            var tags = entry.category.toString().toLowerCase().replace(/ /g, '-').replace(/,/g, ' ');
+            // * variable scoping (tags)
+            var tags;
+            
+            // if entry tags exist... *
+            if (entry.category !== undefined) {
+                // * arrange entry tags
+                tags = entry.category.toString().toLowerCase().replace(/ /g, '-').replace(/,/g, ' ');
+            }
             
             // * variable scoping (date)
             var pubDate;
@@ -121,8 +128,9 @@
             }
             
             // * build entry
-            html += '<div class="entryWrapper" data-tag="' + tags + '">';
-            html += '<div class="entryTitle"><' + options.titletag + '><a href="' + entry.link + '">' + entry.title + '</a></' + options.titletag + '></div>';
+            html += '<div class="entryWrapper"';
+            if (options.tags && entry.category !== undefined) { html += 'data-tag="' + tags + '"'; }
+            html += '><div class="entryTitle"><' + options.titletag + '><a href="' + entry.link + '">' + entry.title + '</a></' + options.titletag + '></div>';
             if (options.date && pubDate) { html += '<div class="entryDate">' + pubDate + '</div>'; }
             
             // if content option is true... *
