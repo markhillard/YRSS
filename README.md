@@ -4,6 +4,12 @@ YRSS is a jQuery plugin that utilizes YQL (Yahoo Query Language) to retrieve RSS
 
 YRSS can be used to pull data from any RSS feed on the Internet. However, as with any 3rd party service there's always a chance it will go down or become unusable in the future. Let's hope that Yahoo! keeps YQL up and running.
 
+## CORS
+
+CORS stands for Cross-Origin Resource Sharing. It's a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the resource originated ([Wikipedia](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)).
+
+YRSS bypasses CORS restrictions (if any) by requesting a JSON response at the end of the YQL query (`&format=json`). This allows you to grab RSS feed data from any source on the Internet.
+
 ## Setup
 
 Copy the contents of [yrss.js](yrss.js) and paste it at the bottom of your client's global namespace file under **PLUGINS**.
