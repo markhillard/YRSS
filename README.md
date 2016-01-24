@@ -1,6 +1,9 @@
 # YRSS
 
-YRSS is a jQuery plugin that utilizes YQL (Yahoo Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page. It's loosely based off of [zRSSFeed](http://www.zazar.net/developers/jquery/zrssfeed/), which has been discontinued due to the [Google Feed API being deprecated](https://developers.google.com/feed/terms). This is our solution for clients that previously had zRSSFeed customizations made in BBNC/BBIS that no longer work.
+YRSS is a jQuery plugin that utilizes YQL (Yahoo Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page. It's loosely based off of [zRSSFeed](http://www.zazar.net/developers/jquery/zrssfeed/), which has been discontinued due to the [Google Feed API being deprecated](https://developers.google.com/feed/terms). This is our solution for clients that...
+
+1. previously had zRSSFeed customizations made in BBNC/BBIS that no longer work.
+2. need to grab an RSS feed and display it on their website.
 
 YRSS can be used to pull data from any RSS feed on the Internet. However, as with any 3rd party service there's always a chance it will go down or become unusable in the future. Let's hope that Yahoo! keeps YQL up and running.
 
