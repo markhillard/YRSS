@@ -71,23 +71,3 @@ As above, you can pass a callback function after the options are decalred. This 
 `snippetlimit`: (**integer**) - character limit of first paragraph in content if `snippet` option is **true**
 
 `linktarget`: (**string**) - accepts **_self**, **_blank**, **_parent**, and **_top**
-
-## How to Contribute
-
-Team contributions are how we keep our code great. Please adhere to the following guidelines.
-
-### Workflow
-
-For code changes, you'll need to submit a pull request. If you've never submitted one, it's easy. Just follow the [contribution docs](https://guides.github.com/introduction/flow/).
-
-Basically:
-
-1. Create a branch
-2. Add commits
-3. Open a Pull Request
-4. Deploy
-5. Merge (and delete branch if no longer needed)
-
-## Suggestions / Concerns?
-
-Please use the issue tracker in this repo to report bugs or suggest improvements.
