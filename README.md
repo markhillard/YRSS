@@ -71,3 +71,9 @@ As above, you can pass a callback function after the options are decalred. This 
 `snippetlimit`: (**integer**) - character limit of first paragraph in content if `snippet` option is **true**
 
 `linktarget`: (**string**) - accepts **_self**, **_blank**, **_parent**, and **_top**
+
+## Copyright
+
+&copy; 2016 Mark Hillard
+
+[MIT License](LICENSE.md)
