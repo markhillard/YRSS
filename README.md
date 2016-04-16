@@ -42,7 +42,7 @@ $('#element').rssfeed('https://bbis5740pssandbox.blackbaudhosting.com/feed.rss?i
 
 ### Callback Function
 
-As above, you can pass a callback function after the options are decalred. This function will fire immediately after YQL returns feed data.
+As above, you can pass a callback function after the options are declared. This function will fire immediately after YQL returns feed data.
 
 **Format:** `rssfeed(url, options, fn)`
 
