@@ -1,9 +1,6 @@
 # YRSS
 
-YRSS is a jQuery plugin that utilizes YQL (Yahoo Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page. It's loosely based off of [zRSSFeed](http://www.zazar.net/developers/jquery/zrssfeed/), which has been discontinued due to the [Google Feed API being deprecated](https://developers.google.com/feed/terms). This is our solution for clients that...
-
-1. previously had zRSSFeed customizations made in BBNC/BBIS that no longer work.
-2. need to grab an RSS feed and display it on their website.
+YRSS is a jQuery plugin that utilizes YQL (Yahoo Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page. Since the discontinuation of the [Google Feed API](https://developers.google.com/feed/terms), we needed another way to grab this data and customize it.
 
 YRSS can be used to pull data from any RSS feed on the Internet. However, as with any 3rd party service there's always a chance it will go down or become unusable in the future. Let's hope that Yahoo! keeps YQL up and running.
 
@@ -15,14 +12,15 @@ YRSS bypasses CORS restrictions (if any) by requesting a JSON response at the en
 
 ## Setup
 
-Copy the contents of [yrss.js](yrss.js) and paste it at the bottom of your client's global namespace file under **PLUGINS**.
+Include [yrss.js](yrss.js) or [yrss.min.js](yrss.min.js) as a dependency or in a namespaced global JS file.
 
 ## Initialization
 
 The following code snippet demonstrates how to initialize the plugin on an HTML element. It includes all options and their default values:
 
 ```js
-$('#element').rssfeed('https://bbis5740pssandbox.blackbaudhosting.com/feed.rss?id=1', {
+var feed1 = 'https://bbis5740pssandbox.blackbaudhosting.com/feed.rss?id=1';
+$('#element').rssfeed(feed1, {
     ssl: false,
     limit: 10,
     showerror: true,
