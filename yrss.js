@@ -1,14 +1,16 @@
 /*!
 ***********************************************
-YRSS 1.0.0
+YRSS 1.0.1
 ***********************************************
-Author(s): Mark Hillard
-Contributors:
+Author: Mark Hillard
 Created: 12/08/2015
-Updated:
+Updated: 04/16/2016
 ***********************************************
 CHANGE LOG
 ***********************************************
+04/16/2016  v1.0.1
+- minor updates
+
 12/08/2015  v1.0.0
 - initial release
 ***********************************************
@@ -39,9 +41,8 @@ CHANGE LOG
         
         // return functions
         return this.each(function (i, e) {
-            var s = '';
-            
             // check for ssl protocol
+            var s = '';
             if (options.ssl) { s = 's'; }
             
             // add class to container
