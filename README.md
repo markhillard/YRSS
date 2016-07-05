@@ -1,7 +1,5 @@
 # YRSS
 
-[![YRSS releases](https://img.shields.io/github/release/bbClassic/YRSS.svg)](https://github.com/bbClassic/YRSS/releases)
-
 YRSS is a jQuery plugin that utilizes YQL (Yahoo Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page. Since the discontinuation of the [Google Feed API](https://developers.google.com/feed/terms), we needed another way to grab this data and customize it.
 
 YRSS can be used to pull data from any RSS feed on the Internet. However, as with any 3rd party service there's always a chance it will go down or become unusable in the future. Let's hope that Yahoo! keeps YQL up and running.
