@@ -2,7 +2,7 @@
 
 [![YRSS releases](https://img.shields.io/github/release/bbClassic/YRSS.svg)](https://github.com/bbClassic/YRSS/releases)
 
-YRSS is a jQuery plugin that utilizes YQL (Yahoo Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page. Since the [Google Feed API](https://developers.google.com/feed/terms) has been discontinued, this provides another way to grab this data and customize it.
+YRSS is a jQuery plugin that utilizes YQL (Yahoo Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page. Since the [Google Feed API](https://developers.google.com/feed/terms) has been discontinued, this provides another way to grab that data and customize it.
 
 YRSS can be used to pull data from any RSS feed on the Internet. However, as with any 3rd party service there's always a chance it will go down or become unusable in the future. Let's hope that Yahoo! keeps YQL up and running.
 
@@ -33,6 +33,7 @@ $('#element').rssfeed(feed1, {
     titletag: 'h4',
     content: true,
     snippet: true,
+    snippetimage: false,
     snippetlimit: 120,
     linktarget: '_self'
 }, function () {
@@ -54,21 +55,23 @@ As above, you can pass a callback function after the options are declared. This 
 
 `showerror`: (**boolean**) - display error message if feed cannot be loaded
 
-`errormsg`: (**string**) - display custom error message if `showerror` option is **true**
+`errormsg`: (**string**) - display custom error message (if `showerror` option is **true**)
 
 `tags`: (**boolean**) - enable or disable tagging (entry tags are added as data attribute values on entry wrapper elements)
 
 `date`: (**boolean**) - enable or disable entry dates
 
-`dateformat`: (**string**) - accepts **default**, **spellmonth**, **localedate**, and **localedatetime** if `date` option is **true**
+`dateformat`: (**string**) - accepts **default**, **spellmonth**, **localedate**, and **localedatetime** (if `date` option is **true**)
 
 `titletag`: (**string**) - accepts any HTML heading tag
 
-`content`: (**boolean**) - show or hide entry content (entry title and entry date will still be displayed)
+`content`: (**boolean**) - show or hide entry content (entry title still displayed if **false** and entry date still displayed if `date` option is **true**)
 
-`snippet`: (**boolean**) - entry image is moved above entry title and only first paragraph in content is displayed
+`snippet`: (**boolean**) - only first paragraph in content is displayed (if `content` option is **true**)
 
-`snippetlimit`: (**integer**) - character limit of first paragraph in content if `snippet` option is **true**
+`snippetimage`: (**boolean**) - entry image is displayed above entry title (if `content` option is **true** and `snippet` option is **true**)
+
+`snippetlimit`: (**integer**) - character limit of first paragraph in content (if `content` option is **true** and `snippet` option is **true**)
 
 `linktarget`: (**string**) - accepts **_self**, **_blank**, **_parent**, and **_top**
 
