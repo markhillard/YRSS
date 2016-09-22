@@ -1,20 +1,5 @@
-/*!
-***********************************************
-YRSS 1.0.1
-***********************************************
-Author: Mark Hillard
-Created: 12/08/2015
-Updated: 04/16/2016
-***********************************************
-CHANGE LOG
-***********************************************
-04/16/2016  v1.0.1
-- minor updates
-
-12/08/2015  v1.0.0
-- initial release
-***********************************************
-*/
+/* YRSS 1.0.2 */
+/* Copyright (c) 2016 Mark Hillard - MIT License */
 
 (function ($) {
     
@@ -32,6 +17,7 @@ CHANGE LOG
             titletag: 'h4',
             content: true,
             snippet: true,
+            snippetimage: false,
             snippetlimit: 120,
             linktarget: '_self'
         };
@@ -169,16 +155,18 @@ CHANGE LOG
             $.each(htmlObject, function () {
                 // if snippet option is true... *
                 if (options.snippet) {
-                    // * check for first image
-                    var image = $(this).find('img').first();
-                    
-                    // if image exists... *
-                    if (image.length !== 0) {
-                        // * create image wrapper
-                        $(this).prepend('<div class="entryImage">');
+                    if (options.snippetimage) {
+                        // * check for first image
+                        var image = $(this).find('img').first();
                         
-                        // * append image in wrapper
-                        $(this).find('.entryImage').append(image);
+                        // if image exists... *
+                        if (image.length !== 0) {
+                            // * create image wrapper
+                            $(this).prepend('<div class="entryImage">');
+                            
+                            // * append image in wrapper
+                            $(this).find('.entryImage').append(image);
+                        }
                     }
                     
                     // * remove all content except for first paragraph
