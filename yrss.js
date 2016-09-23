@@ -167,8 +167,7 @@
                             // * create image wrapper
                             $(this).prepend('<div class="entryImage">');
                             
-                            // * append image in wrapper
-                            $(this).find('.entryImage').append(image);
+                            $(this).find('.entryImage').append(image).nextAll().wrapAll('<div class="entryText"></div>');
                         }
                     }
                     
