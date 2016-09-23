@@ -1,7 +1,10 @@
-/* YRSS 1.0.3 */
+/* YRSS 1.0.4 */
 /* Copyright (c) 2016 Mark Hillard - MIT License */
 
 (function ($) {
+    
+    // use strict mode
+    'use strict';
     
     $.fn.rssfeed = function (url, options, fn) {
         
