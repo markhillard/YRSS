@@ -167,6 +167,7 @@
                             // * create image wrapper
                             $(this).prepend('<div class="entryImage">');
                             
+                            // * append first image in image wrapper and wrap all textual elements after it
                             $(this).find('.entryImage').append(image).nextAll().wrapAll('<div class="entryText"></div>');
                         }
                     }
