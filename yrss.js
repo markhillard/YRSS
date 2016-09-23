@@ -169,14 +169,11 @@
                         }
                     }
                     
-                    // * remove all content except for first paragraph
-                    $(this).find('.entryContent *').not('p').first().hide();
-                    
                     // * set character limit
-                    var p = $(this).find('p');
-                    var pl = p.text().length;
-                    p.text(function (i, v) {
-                        if (pl <= options.snippetlimit) {
+                    var content = $(this).find('.entryContent');
+                    var contentLength = $(content).text().length;
+                    content.text(function (i, v) {
+                        if (contentLength <= options.snippetlimit) {
                             return v;
                         } else {
                             return v.substring(0, options.snippetlimit) + ' ...';
