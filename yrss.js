@@ -1,4 +1,4 @@
-/* YRSS 1.0.2 */
+/* YRSS 1.0.3 */
 /* Copyright (c) 2016 Mark Hillard - MIT License */
 
 (function ($) {
@@ -87,6 +87,9 @@
     var process = function (e, data, options) {
         // feed data (entries)
         var entries = data.query.results.item;
+        
+        // check if entries are not inside an array (only 1 entry)
+        if (!$.isArray(entries)) { entries = [entries]; }
         
         // abort if no entries exist
         if (!entries) { return false; }
