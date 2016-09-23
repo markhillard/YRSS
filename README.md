@@ -61,15 +61,15 @@ As above, you can pass a callback function after the options are declared. This 
 
 `dateformat`: (**string**) - accepts **default**, **spellmonth**, **localedate**, and **localedatetime** (if `date: true`)
 
-`titletag`: (**string**) - accepts any HTML heading tag
+`titletag`: (**string**) - accepts any HTML tag (recommended: **h1**, **h2**, **h3**, **h4**, etc.)
 
 `content`: (**boolean**) - show or hide entry content (entry title still displayed if `content: false`)
 
-`snippet`: (**boolean**) - only first paragraph in content is displayed (if `content: true`)
+`snippet`: (**boolean**) - converts entry content into plain text (if `content: true`)
 
-`snippetimage`: (**boolean**) - entry image is displayed above entry title (if `content: true` and `snippet: true`)
+`snippetimage`: (**boolean**) - entry image is positioned above entry text wrapper (if `content: true` and `snippet: true`)
 
-`snippetlimit`: (**integer**) - character limit of first paragraph in content (if `content: true` and `snippet: true`)
+`snippetlimit`: (**integer**) - character limit of snippet (if `content: true` and `snippet: true`)
 
 `linktarget`: (**string**) - accepts **_self**, **_blank**, **_parent**, and **_top**
 
