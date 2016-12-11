@@ -1,4 +1,4 @@
-/* YRSS 1.0.4 */
+/* YRSS 1.0.5 */
 /* Copyright (c) 2016 Mark Hillard - MIT License */
 
 (function ($) {
@@ -20,8 +20,8 @@
             titletag: 'h4',
             content: true,
             snippet: true,
-            snippetimage: false,
             snippetlimit: 120,
+            image: false,
             linktarget: '_self'
         };
         
@@ -161,20 +161,6 @@
             $.each(htmlObject, function () {
                 // if snippet option is true... *
                 if (options.snippet) {
-                    if (options.snippetimage) {
-                        // * check for first image
-                        var image = $(this).find('img').first();
-                        
-                        // if image exists... *
-                        if (image.length !== 0) {
-                            // * create image wrapper
-                            $(this).prepend('<div class="entryImage">');
-                            
-                            // * append first image in image wrapper and wrap all textual elements after it
-                            $(this).find('.entryImage').append(image).nextAll().wrapAll('<div class="entryText"></div>');
-                        }
-                    }
-                    
                     // * set character limit
                     var content = $(this).find('.entryContent');
                     var contentLength = $(content).text().length;
@@ -185,6 +171,21 @@
                             return v.substring(0, options.snippetlimit) + ' ...';
                         }
                     });
+                }
+                
+                // if image option is true... *
+                if (options.image) {
+                    // * check for first image
+                    var image = $(this).find('img').first();
+                    
+                    // if image exists... *
+                    if (image.length !== 0) {
+                        // * create image wrapper
+                        $(this).prepend('<div class="entryImage">');
+                        
+                        // * append first image in image wrapper and wrap all textual elements after it
+                        $(this).find('.entryImage').append(image).nextAll().wrapAll('<div class="entryText"></div>');
+                    }
                 }
             });
         }
