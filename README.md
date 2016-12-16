@@ -14,6 +14,8 @@ YRSS bypasses CORS restrictions (if any) by requesting a JSON response at the en
 
 Include [yrss.js](yrss.js) or [yrss.min.js](yrss.min.js) as a dependency.
 
+Check out the [demo](demo.html) to see a working example.
+
 ## Initialization
 
 The following code snippet demonstrates how to initialize the plugin on an HTML element. It includes all options and their default values:

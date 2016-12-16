@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+
+<head>
+    <title>YRSS Demo</title>
+    
+    <!--meta information-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://rawgit.com/bbClassic/YRSS/master/yrss.min.js"></script>
+    
+    <!--styles-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+    
+    <style>
+        html,body {
+        -webkit-font-smoothing:antialiased;
+        -webkit-text-size-adjust:100%;
+        background-color:#fff;
+        color:#fff;
+        font-family:"Montserrat", arial, sans-serif;
+        font-size:100%;
+        font-weight:400;
+        height:100%;
+        line-height:1.45;
+        }
+        
+        h1 {
+        color:#00371d;
+        font-size:2.5rem;
+        margin-bottom:3rem;
+        text-align:center;
+        }
+        
+        #wrapper {
+        margin:0 auto;
+        max-width:1200px;
+        padding:3rem 0 5rem;
+        width:90%;
+        }
+        
+        .rssFeed {
+        -webkit-perspective:1;
+        column-fill:balance;
+        column-gap:2rem;
+        margin:0;
+        padding:0;
+        }
+        
+        .entryWrapper {
+        background-color:#006b3a;
+        border-radius:1px;
+        display:inline-block;
+        margin-bottom:2rem;
+        position:relative;
+        vertical-align:top;
+        width:100%;
+        }
+        
+        .entryImage img {
+        border-radius:1px 1px 0 0;
+        display:block;
+        filter:grayscale(50%);
+        height:auto;
+        max-width:100%;
+        width:100%;
+        }
+        
+        .entryTitle h4 {
+        font-size:1.5rem;
+        line-height:1.2;
+        margin-bottom:.625rem;
+        }
+        
+        .entryTitle h4 a {
+        color:#fff;
+        text-decoration:none;
+        transition:color 200ms ease-in-out;
+        }
+        
+        .entryTitle h4 a:hover {
+        color:rgba(255,255,255,.7);
+        }
+        
+        .entryTitle h4 a::after {
+        content:"\02197";
+        margin-left:.5rem;
+        }
+        
+        .entryDate {
+        background-color:#006b3a;
+        font-size:.75rem;
+        position:absolute;
+        top:0;
+        right:0px;
+        padding:.25rem .5rem;
+        border-radius:0 0 0 1px;
+        }
+        
+        .entryText {
+        border-top:3px solid #00371d;
+        padding:1rem;
+        }
+        
+        @media only screen and (min-width:480px) {
+            .rssFeed {
+            column-count:1;
+            }
+        }
+        
+        @media only screen and (min-width:700px) {
+            .rssFeed {
+            column-count:2;
+            }
+        }
+        
+        @media only screen and (min-width:900px) {
+            .rssFeed {
+            column-count:3;
+            }
+        }
+        
+        @media only screen and (min-width:1200px) {
+            .rssFeed {
+            column-count:4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div id="wrapper">
+    <h1>YRSS Demo</h1>
+    <div id="feed"></div>
+</div>
+
+<script>
+var feed1 = 'http://www.theonion.com/feeds/rss';
+$('#feed').rssfeed(feed1, {
+    ssl: false,
+    limit: 20,
+    showerror: true,
+    errormsg: '',
+    tags: true,
+    date: true,
+    dateformat: 'spellmonth',
+    titletag: 'h4',
+    content: true,
+    image: true,
+    snippet: true,
+    snippetlimit: 120,
+    linktarget: '_blank'
+}, function () {
+    // optional callback function
+});
+</script>
+</body>
+</html>
