@@ -1,4 +1,4 @@
-/* YRSS 1.0.5 */
+/* YRSS 1.0.6 */
 /* Copyright (c) 2016 Mark Hillard - MIT License */
 
 (function ($) {
@@ -19,9 +19,9 @@
             dateformat: 'default',
             titletag: 'h4',
             content: true,
+            image: false,
             snippet: true,
             snippetlimit: 120,
-            image: false,
             linktarget: '_self'
         };
         
@@ -159,20 +159,6 @@
         if (options.content) {
             // for each entry... *
             $.each(htmlObject, function () {
-                // if snippet option is true... *
-                if (options.snippet) {
-                    // * set character limit
-                    var content = $(this).find('.entryContent');
-                    var contentLength = $(content).text().length;
-                    content.text(function (i, v) {
-                        if (contentLength <= options.snippetlimit) {
-                            return v;
-                        } else {
-                            return v.substring(0, options.snippetlimit) + ' ...';
-                        }
-                    });
-                }
-                
                 // if image option is true... *
                 if (options.image) {
                     // * check for first image
@@ -186,6 +172,20 @@
                         // * append first image in image wrapper and wrap all textual elements after it
                         $(this).find('.entryImage').append(image).nextAll().wrapAll('<div class="entryText"></div>');
                     }
+                }
+                
+                // if snippet option is true... *
+                if (options.snippet) {
+                    // * set character limit
+                    var content = $(this).find('.entryContent');
+                    var contentLength = $(content).text().length;
+                    content.text(function (i, v) {
+                        if (contentLength <= options.snippetlimit) {
+                            return v;
+                        } else {
+                            return v.substring(0, options.snippetlimit) + ' ...';
+                        }
+                    });
                 }
             });
         }

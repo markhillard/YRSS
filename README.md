@@ -30,9 +30,9 @@ $('#element').rssfeed(feed1, {
     dateformat: 'default',
     titletag: 'h4',
     content: true,
+    image: false,
     snippet: true,
     snippetlimit: 120,
-    image: false,
     linktarget: '_self'
 }, function () {
     // optional callback function
@@ -65,11 +65,11 @@ As above, you can pass a callback function after the options are declared. This 
 
 `content`: (**boolean**) - show or hide entry content (entry title still displayed if `content: false`)
 
+`image`: (**boolean**) - entry image is positioned above entry text wrapper (if `content: true`)
+
 `snippet`: (**boolean**) - converts entry content into plain text (if `content: true`)
 
 `snippetlimit`: (**integer**) - character limit of snippet (if `content: true` and `snippet: true`)
-
-`image`: (**boolean**) - entry image is positioned above entry text wrapper (if `content: true`)
 
 `linktarget`: (**string**) - accepts **_self**, **_blank**, **_parent**, and **_top**
 
