@@ -1,5 +1,5 @@
-/* YRSS 1.0.6 */
-/* Copyright (c) 2016 Mark Hillard - MIT License */
+/* YRSS 1.0.7 */
+/* Copyright (c) 2017 Mark Hillard - MIT License */
 
 (function ($) {
     
@@ -144,8 +144,15 @@
             
             // if content option is true... *
             if (options.content) {
+                // * check for rss description/encoded value
+                var content;
+                if (entry.description !== undefined) {
+                    content = entry.description;
+                } else {
+                    content = entry.encoded;
+                }
+                
                 // * build content
-                var content = entry.description;
                 html += '<div class="entryContent">' + content + '</div>';
             }
             

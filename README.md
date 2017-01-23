@@ -77,6 +77,6 @@ As above, you can pass a callback function after the options are declared. This 
 
 ## Copyright
 
-&copy; 2016 Mark Hillard
+&copy; 2017 Mark Hillard
 
 [MIT License](LICENSE.md)
