@@ -49,31 +49,21 @@ As above, you can pass a callback function after the options are declared. This 
 
 ## Configuration
 
-`ssl`: (**boolean**) - enable or disable **https** protocol
-
-`limit`: (**integer**) - number of entries to display
-
-`showerror`: (**boolean**) - display error message if feed cannot be loaded
-
-`errormsg`: (**string**) - display custom error message (if `showerror: true`)
-
-`tags`: (**boolean**) - enable or disable tagging (entry tags are added as data attribute values on entry wrapper elements)
-
-`date`: (**boolean**) - enable or disable entry dates
-
-`dateformat`: (**string**) - accepts **default**, **spellmonth**, **localedate**, and **localedatetime** (if `date: true`)
-
-`titletag`: (**string**) - accepts any HTML tag (recommended: **h1**, **h2**, **h3**, **h4**, etc.)
-
-`content`: (**boolean**) - show or hide entry content (entry title still displayed if `content: false`)
-
-`image`: (**boolean**) - entry image is positioned above entry text wrapper (if `content: true`)
-
-`snippet`: (**boolean**) - converts entry content into plain text (if `content: true`)
-
-`snippetlimit`: (**integer**) - character limit of snippet (if `content: true` and `snippet: true`)
-
-`linktarget`: (**string**) - accepts **_self**, **_blank**, **_parent**, and **_top**
+|Option|Type|Description|
+|:-----|:---|:----------|
+|`ssl`|boolean|enable or disable **https** protocol|
+|`limit`|integer|number of entries to display|
+|`showerror`|boolean|display error message if feed cannot be loaded|
+|`errormsg`|string|display custom error message (if `showerror: true`)|
+|`tags`|boolean|enable or disable tagging (entry tags are added as data attribute values on entry wrapper elements)|
+|`date`|boolean|enable or disable entry dates|
+|`dateformat`|string|accepts **default**, **spellmonth**, **localedate**, and **localedatetime** (if `date: true`)|
+|`titletag`|string|accepts any HTML tag (recommended: **h1**, **h2**, **h3**, **h4**, etc.)|
+|`content`|boolean|show or hide entry content (entry title still displayed if `content: false`)|
+|`image`|boolean|entry image is positioned above entry text wrapper (if `content: true`)|
+|`snippet`|boolean|converts entry content into plain text (if `content: true`)|
+|`snippetlimit`|integer|character limit of snippet (if `content: true` and `snippet: true`)|
+|`linktarget`|string|accepts **_self**, **_blank**, **_parent**, and **_top**|
 
 ## Copyright
 
