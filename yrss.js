@@ -187,7 +187,9 @@
                     var content = $(this).find('.entryContent');
                     var contentLength = $(content).text().length;
                     content.text(function (i, v) {
-                        if (contentLength <= options.snippetlimit) {
+                        if (contentLength === 0) {
+                            return '';
+                        } else if (contentLength !== 0 && contentLength <= options.snippetlimit) {
                             return v;
                         } else {
                             return v.substring(0, options.snippetlimit) + ' ...';
