@@ -139,24 +139,24 @@
 </div>
 
 <script>
-var feed1 = 'http://www.theonion.com/feeds/rss';
-$('#feed').rssfeed(feed1, {
-    ssl: false,
-    limit: 20,
-    showerror: true,
-    errormsg: '',
-    tags: true,
-    date: true,
-    dateformat: 'spellmonth',
-    titletag: 'h4',
-    content: true,
-    image: true,
-    snippet: true,
-    snippetlimit: 120,
-    linktarget: '_blank'
-}, function () {
-    // optional callback function
-});
+    var feed1 = 'http://www.theonion.com/feeds/rss';
+    $('#feed').rssfeed(feed1, {
+        ssl: false,
+        limit: 20,
+        showerror: true,
+        errormsg: '',
+        tags: true,
+        date: true,
+        dateformat: 'spellmonth',
+        titletag: 'h4',
+        content: true,
+        image: true,
+        snippet: true,
+        snippetlimit: 120,
+        linktarget: '_blank'
+    }, function () {
+        // optional callback function
+    });
 </script>
 </body>
 </html>
