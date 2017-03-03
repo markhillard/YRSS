@@ -147,9 +147,9 @@
                 // * check for rss description/encoded value
                 var content;
                 if (entry.description !== undefined) {
-                    content = entry.description;
+                    content = $.trim(entry.description);
                 } else {
-                    content = entry.encoded;
+                    content = $.trim(entry.encoded);
                 }
                 
                 // * build content
