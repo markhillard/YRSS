@@ -1,4 +1,4 @@
-/* YRSS 1.0.8 */
+/* YRSS 1.0.9 */
 /* Copyright (c) 2017 Mark Hillard - MIT License */
 
 (function ($) {
