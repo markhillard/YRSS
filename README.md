@@ -8,7 +8,7 @@ YRSS is a jQuery plugin that utilizes [YQL](https://developer.yahoo.com/yql/) (Y
 
 CORS stands for Cross-Origin Resource Sharing. It's a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the resource originated ([Wikipedia](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)).
 
-YRSS bypasses CORS restrictions (if any) by requesting a JSON response at the end of the YQL query (`&format=json`). This allows you to grab RSS feed data from any source on the Internet.
+YRSS bypasses CORS restrictions (if any) by requesting a JSON response at the end of the YQL query (`&format=json`). This allows you to grab data from any valid RSS feed on the Internet.
 
 ## Setup
 
@@ -43,7 +43,7 @@ $('#element').rssfeed(feed1, {
 
 ### Callback Function
 
-As above, you can pass a callback function after the options are declared. This function will fire immediately after YQL returns feed data.
+As above, you can pass a callback function after the options are declared. This function will fire immediately after YQL returns feed data. This is especially useful if you need to perform any actions that the plugin can't handle by default, like fixing text/image formatting issues or running any custom scripts after the feed is loaded.
 
 **Format:** `rssfeed(url, options, fn)`
 
