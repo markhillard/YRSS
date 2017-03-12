@@ -58,7 +58,6 @@
         .entryImage img {
         border-radius:1px 1px 0 0;
         display:block;
-        filter:grayscale(50%);
         height:auto;
         max-width:100%;
         width:100%;
@@ -143,6 +142,7 @@
     $('#feed').rssfeed(feed1, {
         ssl: false,
         limit: 20,
+        reverse: false,
         showerror: true,
         errormsg: '',
         tags: true,

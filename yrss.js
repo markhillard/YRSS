@@ -1,4 +1,4 @@
-/* YRSS 1.0.9 */
+/* YRSS 1.1.0 */
 /* Copyright (c) 2017 Mark Hillard - MIT License */
 
 (function ($) {
@@ -12,6 +12,7 @@
         var defaults = {
             ssl: false,
             limit: 10,
+            reverse: false,
             showerror: true,
             errormsg: '',
             tags: false,
@@ -43,6 +44,7 @@
             // create yql query
             var query = 'http' + s + '://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from feed where url="' + url + '"');
             if (options.limit !== null) { query += ' limit ' + options.limit; }
+            if (options.reverse === true) { query += ' | reverse()'; }
             query += '&format=json';
             
             // send request
