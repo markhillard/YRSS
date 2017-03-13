@@ -21,11 +21,13 @@ Check out the [demo](http://bbclassic.github.io/YRSS/demo.html) to see a working
 The following code snippet demonstrates how to initialize the plugin on an HTML element. It includes all options and their default values:
 
 ```js
-var feed1 = 'https://bbis5740pssandbox.blackbaudhosting.com/feed.rss?id=1';
-$('#element').rssfeed(feed1, {
+var feed = 'http://www.theonion.com/feeds/rss';
+$('#element').rssfeed(feed, {
     ssl: false,
     limit: 10,
     reverse: false,
+    cache: true,
+    maxage: 3600,
     showerror: true,
     errormsg: '',
     tags: false,
@@ -55,6 +57,8 @@ As above, you can pass a callback function after the options are declared. This 
 |`ssl`|boolean|enable or disable **https** protocol|
 |`limit`|integer|number of entries to display|
 |`reverse`|boolean|reverse order of entries|
+|`cache`|boolean|enable or disable cache control|
+|`maxage`|integer|maximum age of cache in seconds (if `cache: true`)|
 |`showerror`|boolean|display error message if feed cannot be loaded|
 |`errormsg`|string|display custom error message (if `showerror: true`)|
 |`tags`|boolean|enable or disable tagging (entry tags are added as data attribute values on entry wrapper elements)|
