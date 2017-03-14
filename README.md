@@ -22,7 +22,7 @@ The following code snippet demonstrates how to initialize the plugin on an HTML 
 
 ```js
 var feed = 'http://www.theonion.com/feeds/rss';
-$('#element').rssfeed(feed, {
+$('#element').yrss(feed, {
     ssl: false,
     limit: 10,
     reverse: false,
@@ -48,7 +48,7 @@ $('#element').rssfeed(feed, {
 
 As above, you can pass a callback function after the options are declared. This function will fire immediately after YQL returns feed data. This is especially useful if you need to perform any actions that the plugin can't handle by default, like fixing text/image formatting issues or running any custom scripts after the feed is loaded.
 
-**Format:** `rssfeed(url, options, fn)`
+**Format:** `yrss(url, options, fn)`
 
 ## Configuration
 

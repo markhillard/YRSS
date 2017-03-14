@@ -37,7 +37,7 @@
         width:90%;
         }
         
-        .rssFeed {
+        .rss-feed {
         -webkit-perspective:1;
         column-fill:balance;
         column-gap:2rem;
@@ -45,7 +45,7 @@
         padding:0;
         }
         
-        .entryWrapper {
+        .entry-wrapper {
         background-color:#006b3a;
         border-radius:1px;
         display:inline-block;
@@ -55,7 +55,7 @@
         width:100%;
         }
         
-        .entryImage img {
+        .entry-image img {
         border-radius:1px 1px 0 0;
         display:block;
         height:auto;
@@ -63,27 +63,27 @@
         width:100%;
         }
         
-        .entryTitle h4 {
+        .entry-title h4 {
         font-size:1.5rem;
         line-height:1.2;
         }
         
-        .entryTitle h4 a {
+        .entry-title h4 a {
         color:#fff;
         text-decoration:none;
         transition:color 200ms ease-in-out;
         }
         
-        .entryTitle h4 a:hover {
+        .entry-title h4 a:hover {
         color:rgba(255,255,255,.7);
         }
         
-        .entryTitle h4 a::after {
+        .entry-title h4 a::after {
         content:"\02197";
         margin-left:.5rem;
         }
         
-        .entryDate {
+        .entry-date {
         background-color:#006b3a;
         font-size:.75rem;
         position:absolute;
@@ -93,39 +93,39 @@
         border-radius:0 0 0 1px;
         }
         
-        .entryText {
+        .entry-text {
         border-top:3px solid #00371d;
         padding:1rem;
         }
         
-        .entryContent {
+        .entry-content {
         margin:.625rem 0 0;
         }
         
-        .entryContent:empty {
+        .entry-content:empty {
         display:none;
         }
         
         @media only screen and (min-width:480px) {
-            .rssFeed {
+            .rss-feed {
             column-count:1;
             }
         }
         
         @media only screen and (min-width:700px) {
-            .rssFeed {
+            .rss-feed {
             column-count:2;
             }
         }
         
         @media only screen and (min-width:900px) {
-            .rssFeed {
+            .rss-feed {
             column-count:3;
             }
         }
         
         @media only screen and (min-width:1200px) {
-            .rssFeed {
+            .rss-feed {
             column-count:4;
             }
         }
@@ -139,7 +139,7 @@
 
 <script>
     var feed = 'http://www.theonion.com/feeds/rss';
-    $('#feed').rssfeed(feed, {
+    $('#feed').yrss(feed, {
         ssl: false,
         limit: 20,
         reverse: false,

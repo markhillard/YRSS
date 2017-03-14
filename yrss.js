@@ -1,4 +1,4 @@
-/* YRSS 1.1.1 */
+/* YRSS 1.1.2 */
 /* Copyright (c) 2017 Mark Hillard - MIT License */
 
 (function ($) {
@@ -6,7 +6,7 @@
     // use strict mode
     'use strict';
     
-    $.fn.rssfeed = function (url, options, fn) {
+    $.fn.yrss = function (url, options, fn) {
         
         // plugin defaults
         var defaults = {
@@ -38,7 +38,7 @@
             if (options.ssl) { s = 's'; }
             
             // add class to container
-            if (!$(e).hasClass('rssFeed')) { $(e).addClass('rssFeed'); }
+            if (!$(e).hasClass('rss-feed')) { $(e).addClass('rss-feed'); }
             
             // check for valid url
             if (url === null) { return false; }
@@ -87,7 +87,7 @@
                         }
                         
                         // * display error message
-                        $(e).html('<div class="rssError"><p>' + msg + '</p></div>');
+                        $(e).html('<div class="rss-error"><p>' + msg + '</p></div>');
                         
                     // if showerror option is false... *
                     } else {
@@ -150,10 +150,10 @@
             }
             
             // * build entry
-            html += '<div class="entryWrapper"';
+            html += '<div class="entry-wrapper"';
             if (options.tags && entry.category !== undefined) { html += 'data-tag="' + tags + '"'; }
-            html += '><div class="entryTitle"><' + options.titletag + '><a href="' + entry.link + '">' + entry.title + '</a></' + options.titletag + '></div>';
-            if (options.date && pubDate) { html += '<div class="entryDate">' + pubDate + '</div>'; }
+            html += '><div class="entry-title"><' + options.titletag + '><a href="' + entry.link + '">' + entry.title + '</a></' + options.titletag + '></div>';
+            if (options.date && pubDate) { html += '<div class="entry-date">' + pubDate + '</div>'; }
             
             // if content option is true... *
             if (options.content) {
@@ -166,7 +166,7 @@
                 }
                 
                 // * build content
-                html += '<div class="entryContent">' + content + '</div>';
+                html += '<div class="entry-content">' + content + '</div>';
             }
             
             html += '</div>';
@@ -187,17 +187,17 @@
                     // if image exists... *
                     if (image.length !== 0) {
                         // * create image wrapper
-                        $(this).prepend('<div class="entryImage">');
+                        $(this).prepend('<div class="entry-image">');
                         
                         // * append first image in image wrapper and wrap all textual elements after it
-                        $(this).find('.entryImage').append(image).nextAll().wrapAll('<div class="entryText"></div>');
+                        $(this).find('.entry-image').append(image).nextAll().wrapAll('<div class="entry-text"></div>');
                     }
                 }
                 
                 // if snippet option is true... *
                 if (options.snippet) {
                     // * set character limit
-                    var content = $(this).find('.entryContent');
+                    var content = $(this).find('.entry-content');
                     var contentLength = $(content).text().length;
                     content.text(function (i, v) {
                         if (contentLength === 0) {
