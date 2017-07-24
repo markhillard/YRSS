@@ -38,7 +38,8 @@ $('#element').yrss(feed, {
     image: false,
     snippet: true,
     snippetlimit: 120,
-    linktarget: '_self'
+    linktarget: '_self',
+    logging: false
 }, function () {
     // optional callback function
 });
@@ -70,6 +71,7 @@ As above, you can pass a callback function after the options are declared. This 
 |`snippet`|boolean|converts entry content into plain text (if `content: true`)|
 |`snippetlimit`|integer|character limit of snippet (if `content: true` and `snippet: true`)|
 |`linktarget`|string|accepts **_self**, **_blank**, **_parent**, and **_top**|
+|`logging`|boolean|enable or disable logging in console (full object data and entry array)|
 
 ## Copyright
 

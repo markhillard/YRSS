@@ -1,4 +1,4 @@
-/* YRSS 1.1.2 */
+/* YRSS 1.1.3 */
 /* Copyright (c) 2017 Mark Hillard - MIT License */
 
 (function ($) {
@@ -25,7 +25,8 @@
             image: false,
             snippet: true,
             snippetlimit: 120,
-            linktarget: '_self'
+            linktarget: '_self',
+            logging: false
         };
         
         // extend options
@@ -106,6 +107,14 @@
         
         // check if entries are not inside an array (only 1 entry)
         if (!$.isArray(entries)) { entries = [entries]; }
+        
+        // log object data to console if logging is true
+        if (options.logging) {
+            console.log('Object Data:');
+            console.log(data);
+            console.log('Entry Array:');
+            console.log(entries);
+        }
         
         // abort if no entries exist
         if (!entries) { return false; }
