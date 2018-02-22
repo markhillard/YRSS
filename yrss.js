@@ -1,5 +1,5 @@
-/* YRSS 1.1.3 */
-/* Copyright (c) 2017 Mark Hillard - MIT License */
+/* YRSS 1.1.4 */
+/* Copyright (c) 2018 Mark Hillard - MIT License */
 
 (function ($) {
     
