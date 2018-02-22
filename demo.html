@@ -153,12 +153,17 @@
         titletag: 'h4',
         content: true,
         image: true,
-        snippet: true,
+        snippet: false,
         snippetlimit: 120,
         linktarget: '_blank',
         logging: false
     }, function () {
         // optional callback function
+        $('.entry-content').each(function () {
+            if (!$(this).is(':empty')) {
+                $(this).find('p:last-child').remove();
+            }
+        });
     });
 </script>
 </body>
