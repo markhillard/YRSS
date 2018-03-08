@@ -133,8 +133,30 @@
             
             // if entry tags exist... *
             if (!!entry.category) {
+                // * check for data type
+                if ($.isArray(entry.category)) {
+                    var arr = Object.keys(entry.category).map(function(key) {
+                        if (entry.category[key].domain !== '') {
+                            return entry.category[key].domain + ':' + entry.category[key].content;
+                        } else {
+                            return entry.category[key].content;
+                        }
+                    });
+                    tags = arr;
+                } else if ($.type(entry.category) === 'object') {
+                    var domain = entry.category.domain,
+                        obj = entry.category.content;
+                    if (entry.category.domain !== '') {
+                        tags = domain + ':' + obj;
+                    } else {
+                        tags = obj;
+                    }
+                } else {
+                    tags = entry.category;
+                }
+                
                 // * arrange entry tags
-                tags = entry.category.toString().toLowerCase().replace(/ /g, '-').replace(/,/g, ' ');
+                tags = tags.toString().toLowerCase().replace(/ /g, '-').replace(/,/g, ' ');
             }
             
             // * variable scoping (date)
