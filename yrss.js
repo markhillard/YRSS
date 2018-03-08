@@ -42,13 +42,13 @@
             if (!$(e).hasClass('rss-feed')) { $(e).addClass('rss-feed'); }
             
             // check for valid url
-            if (url === null) { return false; }
+            if (!url) { return false; }
             
             // create yql query
             var query = 'http' + s + '://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from feed where url="' + url + '"');
             
             // set limit
-            if (options.limit !== null) { query += ' limit ' + options.limit; }
+            if (!!options.limit) { query += ' limit ' + options.limit; }
             
             // reverse feed order
             if (options.reverse) { query += ' | reverse()'; }
@@ -132,7 +132,7 @@
             var tags;
             
             // if entry tags exist... *
-            if (entry.category !== undefined) {
+            if (!!entry.category) {
                 // * arrange entry tags
                 tags = entry.category.toString().toLowerCase().replace(/ /g, '-').replace(/,/g, ' ');
             }
@@ -160,7 +160,7 @@
             
             // * build entry
             html += '<div class="entry-wrapper"';
-            if (options.tags && entry.category !== undefined) { html += 'data-tag="' + tags + '"'; }
+            if (options.tags && !!entry.category) { html += 'data-tag="' + tags + '"'; }
             html += '><div class="entry-title"><' + options.titletag + '><a href="' + entry.link + '">' + entry.title + '</a></' + options.titletag + '></div>';
             if (options.date && pubDate) { html += '<div class="entry-date">' + pubDate + '</div>'; }
             
@@ -168,7 +168,7 @@
             if (options.content) {
                 // * check for rss description/encoded value
                 var content;
-                if (entry.description !== undefined) {
+                if (!!entry.description) {
                     content = $.trim(entry.description);
                 } else {
                     content = $.trim(entry.encoded);
