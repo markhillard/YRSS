@@ -225,6 +225,11 @@
                     } else {
                         $(this).children().wrapAll('<div class="entry-text"></div>');
                     }
+                    
+                // if image option is false... *
+                } else {
+                    // * remove all images from content
+                    $(this).find('img').remove();
                 }
                 
                 // if snippet option is true... *
