@@ -222,6 +222,8 @@
                         
                         // * append first image in image wrapper and wrap all textual elements after it
                         $(this).find('.entry-image').append(image).nextAll().wrapAll('<div class="entry-text"></div>');
+                    } else {
+                        $(this).children().wrapAll('<div class="entry-text"></div>');
                     }
                 }
                 
