@@ -10,7 +10,7 @@
     
     <!--scripts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://rawgit.com/bbClassic/YRSS/master/yrss.min.js"></script>
     
     <!--styles-->
@@ -84,18 +84,25 @@
         }
         
         .entry-date {
-        background-color:#006b3a;
         font-size:.75rem;
+        padding:.625rem 0 0;
+        }
+        
+        .entry-image + .entry-text .entry-date {
+        background-color:#006b3a;
         position:absolute;
         top:0;
-        right:0px;
+        right:0;
         padding:.25rem .5rem;
         border-radius:0 0 0 1px;
         }
         
         .entry-text {
-        border-top:3px solid #00371d;
         padding:1rem;
+        }
+        
+        .entry-image + .entry-text {
+        border-top:3px solid #00371d;
         }
         
         .entry-content {
@@ -156,7 +163,7 @@
         snippet: false,
         snippetlimit: 120,
         linktarget: '_blank',
-        logging: false
+        logging: true
     }, function () {
         // optional callback function
         $('.entry-content').each(function () {
