@@ -1,4 +1,4 @@
-/* YRSS 1.1.5 */
+/* YRSS 1.1.6 */
 /* Copyright (c) 2018 Mark Hillard - MIT License */
 
 (function ($) {
@@ -39,7 +39,7 @@
             if (options.ssl) { s = 's'; }
             
             // add class to container
-            if (!$(e).hasClass('rss-feed')) { $(e).addClass('rss-feed'); }
+            if (!$(e).hasClass('yrss')) { $(e).addClass('yrss'); }
             
             // check for valid url
             if (!url) { return false; }
