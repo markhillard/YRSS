@@ -14,7 +14,7 @@
     <script src="https://rawgit.com/bbClassic/YRSS/master/yrss.min.js"></script>
     
     <!--styles-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     
     <style>
@@ -22,7 +22,7 @@
         -webkit-font-smoothing:antialiased;
         -webkit-text-size-adjust:100%;
         background-color:#fff;
-        color:#fff;
+        color:#222;
         font-family:"Montserrat", arial, sans-serif;
         font-size:100%;
         font-weight:400;
@@ -33,11 +33,30 @@
         #wrapper {
         margin:0 auto;
         max-width:1200px;
-        padding:3rem 0 5rem;
+        padding:3rem 0;
         width:90%;
         }
         
-        .rss-feed {
+        #intro {
+        text-align:center;
+        }
+        
+        #intro h1 {
+        color:#006b3a;
+        font-size:3rem;
+        font-weight:600;
+        }
+        
+        #intro p {
+        font-weight:500;
+        margin-bottom:3rem;
+        }
+        
+        #intro p a {
+        color:#006b3a;
+        }
+        
+        .yrss {
         -webkit-perspective:1;
         column-fill:balance;
         column-gap:2rem;
@@ -84,6 +103,7 @@
         }
         
         .entry-date {
+        color:#fff;
         font-size:.75rem;
         padding:.625rem 0 0;
         }
@@ -106,6 +126,7 @@
         }
         
         .entry-content {
+        color:#fff;
         margin:.625rem 0 0;
         }
         
@@ -114,25 +135,25 @@
         }
         
         @media only screen and (min-width:480px) {
-            .rss-feed {
+            .yrss {
             column-count:1;
             }
         }
         
         @media only screen and (min-width:700px) {
-            .rss-feed {
+            .yrss {
             column-count:2;
             }
         }
         
         @media only screen and (min-width:900px) {
-            .rss-feed {
+            .yrss {
             column-count:3;
             }
         }
         
         @media only screen and (min-width:1200px) {
-            .rss-feed {
+            .yrss {
             column-count:4;
             }
         }
@@ -141,11 +162,15 @@
 
 <body>
 <div id="wrapper">
+    <div id="intro">
+        <h1>The Onion</h1>
+        <p>Top stories loaded by <a href="https://github.com/bbClassic/YRSS">YRSS</a>.</p>
+    </div>
     <div id="feed"></div>
 </div>
 
 <script>
-    var feed = 'http://www.theonion.com/feeds/rss';
+    var feed = 'http://www.theonion.com/rss';
     $('#feed').yrss(feed, {
         ssl: false,
         limit: 20,
