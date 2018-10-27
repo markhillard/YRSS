@@ -21,7 +21,7 @@ Check out the [demo](http://bbclassic.github.io/YRSS/demo.html) to see a working
 The following code snippet demonstrates how to initialize the plugin on an HTML element. It includes all options and their default values:
 
 ```js
-var feed = 'http://www.theonion.com/feeds/rss';
+var feed = 'http://www.theonion.com/rss';
 $('#element').yrss(feed, {
     ssl: false,
     limit: 10,
