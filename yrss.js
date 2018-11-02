@@ -1,4 +1,4 @@
-/* YRSS 1.1.6 */
+/* YRSS 1.1.7 */
 /* Copyright (c) 2018 Mark Hillard - MIT License */
 
 (function ($) {
@@ -61,38 +61,38 @@
             
             // send request
             $.getJSON(query, function (data, status, errorThrown) {
-                // if successful... *
+                // if successful
                 if (status === 'success') {
-                    // * run function to create html result
+                    // run function to create html result
                     process(e, data, options);
                     
-                    // * optional callback function
+                    // optional callback function
                     if ($.isFunction(fn)) { fn.call(this, $(e)); }
                     
-                // if there's an error... *
+                // if there's an error
                 } else if (status === 'error' || status === 'parsererror') {
-                    // if showerror option is true... *
+                    // if showerror option is true
                     if (options.showerror) {
                         // variable scoping (error)
                         var msg;
                         
-                        // if errormsg option is not empty... *
+                        // if errormsg option is not empty
                         if (options.errormsg !== '') {
-                            // * assign custom error message
+                            // assign custom error message
                             msg = options.errormsg;
                             
-                        // if errormsg option is empty... *
+                        // if errormsg option is empty
                         } else {
-                            // * assign default error message
+                            // assign default error message
                             msg = errorThrown;
                         }
                         
-                        // * display error message
+                        // display error message
                         $(e).html('<div class="rss-error"><p>' + msg + '</p></div>');
                         
-                    // if showerror option is false... *
+                    // if showerror option is false
                     } else {
-                        // * abort
+                        // abort
                         return false;
                     }
                 }
@@ -120,20 +120,20 @@
         if (!entries) { return false; }
         
         // html variables
-        var html = '';
-        var htmlObject;
-        
-        // for each entry... *
+        var html = '',
+            htmlObject;
+            
+        // for each entry
         $.each(entries, function (i) {
-            // * assign entry variable
+            // assign entry variable
             var entry = entries[i];
             
-            // * variable scoping (tags)
+            // variable scoping (tags)
             var tags;
             
-            // if entry tags exist... *
+            // if entry tags exist
             if (!!entry.category) {
-                // * check for data type
+                // check for data type
                 if ($.isArray(entry.category)) {
                     var arr = Object.keys(entry.category).map(function(key) {
                         if (entry.category[key].domain !== '') {
@@ -155,19 +155,19 @@
                     tags = entry.category;
                 }
                 
-                // * arrange entry tags
+                // arrange entry tags
                 tags = tags.toString().toLowerCase().replace(/ /g, '-').replace(/,/g, ' ');
             }
             
-            // * variable scoping (date)
+            // variable scoping (date)
             var pubDate;
             
-            // if date option is true... *
+            // if date option is true
             if (entry.pubDate) {
-                // * create date object
+                // create date object
                 var entryDate = new Date(entry.pubDate);
                 
-                // * select date format
+                // select date format
                 if (options.dateformat === 'default') {
                     pubDate = (entryDate.getMonth() + 1).toString() + '/' + entryDate.getDate().toString() + '/' + entryDate.getFullYear();
                 } else if (options.dateformat === 'spellmonth') {
@@ -180,15 +180,15 @@
                 }
             }
             
-            // * build entry
+            // build entry
             html += '<div class="entry-wrapper"';
             if (options.tags && !!entry.category) { html += 'data-tag="' + tags + '"'; }
             html += '><div class="entry-title"><' + options.titletag + '><a href="' + entry.link + '">' + entry.title + '</a></' + options.titletag + '></div>';
             if (options.date && pubDate) { html += '<div class="entry-date">' + pubDate + '</div>'; }
             
-            // if content option is true... *
+            // if content option is true
             if (options.content) {
-                // * check for rss description/encoded value
+                // check for rss description/encoded value
                 var content;
                 if (!!entry.description) {
                     content = $.trim(entry.description);
@@ -196,7 +196,7 @@
                     content = $.trim(entry.encoded);
                 }
                 
-                // * build content
+                // build content
                 html += '<div class="entry-content">' + content + '</div>';
             }
             
@@ -206,37 +206,40 @@
         // provisional html result
         htmlObject = $(html);
         
-        // if content option is true... *
+        // if content option is true
         if (options.content) {
-            // for each entry... *
+            // for each entry
             $.each(htmlObject, function () {
-                // if image option is true... *
+                // if image option is true
                 if (options.image) {
-                    // * check for first image
+                    // check for first image
                     var image = $(this).find('img').first();
                     
-                    // if image exists... *
+                    // if image exists
                     if (image.length !== 0) {
-                        // * create image wrapper
+                        // create image wrapper
                         $(this).prepend('<div class="entry-image">');
                         
-                        // * append first image in image wrapper and wrap all textual elements after it
+                        // append first image in image wrapper and wrap all text elements after it
                         $(this).find('.entry-image').append(image).nextAll().wrapAll('<div class="entry-text"></div>');
+                        
+                    // if image does not exist
                     } else {
+                        // create text wrapper
                         $(this).children().wrapAll('<div class="entry-text"></div>');
                     }
                     
-                // if image option is false... *
+                // if image option is false
                 } else {
-                    // * remove all images from content
+                    // remove all images from content
                     $(this).find('img').remove();
                 }
                 
-                // if snippet option is true... *
+                // if snippet option is true
                 if (options.snippet) {
-                    // * set character limit
-                    var content = $(this).find('.entry-content');
-                    var contentLength = $(content).text().length;
+                    // set character limit
+                    var content = $(this).find('.entry-content'),
+                        contentLength = $(content).text().length;
                     content.text(function (i, v) {
                         if (contentLength === 0) {
                             return '';
