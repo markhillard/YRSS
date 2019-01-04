@@ -1,8 +1,14 @@
+Sorry folks, looks like Yahoo! gave up on YQL. Don't use this plugin, it won't work.
+
+> Important EOL Notice: As of Thursday, Jan. 3, 2019, the YQL service at query.yahooapis.com will be retired. This will impact users of datatables.org as well as developers who creates features using this YQL service.
+
+---
+
 # YRSS
 
 [![YRSS releases](https://img.shields.io/github/release/bbClassic/YRSS.svg)](https://github.com/bbClassic/YRSS/releases)
 
-YRSS is a jQuery plugin that utilizes [YQL](https://developer.yahoo.com/yql/) (Yahoo Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page. Since the [Google Feed API](https://developers.google.com/feed/terms) has been discontinued, this provides another way to grab that data and customize it.
+YRSS is a jQuery plugin that utilizes [YQL](https://developer.yahoo.com/yql/) (Yahoo! Query Language) to retrieve RSS (Really Simple Syndication) feed data and display it on an HTML page. Since the [Google Feed API](https://developers.google.com/feed/terms) has been discontinued, this provides another way to grab that data and customize it.
 
 ## CORS
 
